@@ -1,19 +1,21 @@
-// ========================================
+// =====================================================
 // MENU MOBILE
-// ========================================
+// =====================================================
 
-const menu = document.querySelector('.menu');
-const navLinks = document.querySelector('.nav-links');
+const menu = document.querySelector(".menu");
+const navigation = document.querySelector(".navigation");
 
-if (menu && navLinks) {
+if (menu && navigation) {
 
-  menu.addEventListener('click', () => {
+  menu.addEventListener("click", () => {
+
+    navigation.classList.toggle("active");
 
     const isOpen =
-      navLinks.classList.toggle('active');
+      navigation.classList.contains("active");
 
     menu.setAttribute(
-      'aria-expanded',
+      "aria-expanded",
       isOpen
     );
 
@@ -22,21 +24,21 @@ if (menu && navLinks) {
 }
 
 
-// ========================================
-// FECHAR MENU AO CLICAR EM UM LINK
-// ========================================
+// =====================================================
+// FECHAR MENU AO CLICAR
+// =====================================================
 
 document
-  .querySelectorAll('.nav-links a')
+  .querySelectorAll(".navigation a")
   .forEach(link => {
 
-    link.addEventListener('click', () => {
+    link.addEventListener("click", () => {
 
-      navLinks.classList.remove('active');
+      navigation.classList.remove("active");
 
       menu.setAttribute(
-        'aria-expanded',
-        'false'
+        "aria-expanded",
+        "false"
       );
 
     });
@@ -44,11 +46,55 @@ document
   });
 
 
-// ========================================
-// ANIMAÇÕES AO ENTRAR NA TELA
-// ========================================
+// =====================================================
+// ANIMAÇÃO SUAVE DOS LINKS
+// =====================================================
 
-const observer =
+document
+  .querySelectorAll('a[href^="#"]')
+  .forEach(link => {
+
+    link.addEventListener("click", event => {
+
+      const targetId =
+        link.getAttribute("href");
+
+      if (
+        !targetId ||
+        targetId === "#"
+      ) {
+        return;
+      }
+
+      const target =
+        document.querySelector(targetId);
+
+      if (!target) {
+        return;
+      }
+
+      event.preventDefault();
+
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+    });
+
+  });
+
+
+// =====================================================
+// EFEITO DE APARECIMENTO
+// =====================================================
+
+const revealElements =
+  document.querySelectorAll(
+    ".medieval-card, .creature, .race, .academy-text, .castle-card, .competition-frame"
+  );
+
+const revealObserver =
   new IntersectionObserver(
     entries => {
 
@@ -56,11 +102,12 @@ const observer =
 
         if (entry.isIntersecting) {
 
-          entry.target.classList.add(
-            'visible'
-          );
+          entry.target.style.opacity = "1";
 
-          observer.unobserve(
+          entry.target.style.transform =
+            "translateY(0)";
+
+          revealObserver.unobserve(
             entry.target
           );
 
@@ -75,29 +122,40 @@ const observer =
   );
 
 
-// ========================================
-// ELEMENTOS QUE SERÃO ANIMADOS
-// ========================================
+revealElements.forEach(element => {
 
-document
-  .querySelectorAll('.reveal')
-  .forEach(element => {
+  element.style.opacity = "0";
 
-    observer.observe(element);
+  element.style.transform =
+    "translateY(25px)";
 
-  });
+  element.style.transition =
+    "opacity .8s ease, transform .8s ease";
+
+  revealObserver.observe(element);
+
+});
 
 
-// ========================================
-// ANO AUTOMÁTICO NO FOOTER
-// ========================================
+// =====================================================
+// HEADER MUDA AO ROLAR
+// =====================================================
 
-const footer = document.querySelector('footer');
+const header =
+  document.querySelector(".header");
 
-if (footer) {
+window.addEventListener("scroll", () => {
 
-  const year = new Date().getFullYear();
+  if (window.scrollY > 80) {
 
-  footer.dataset.year = year;
+    header.style.background =
+      "rgba(8,5,3,.98)";
 
-}
+  } else {
+
+    header.style.background =
+      "linear-gradient(to bottom, rgba(12,8,5,.98), rgba(20,12,7,.94))";
+
+  }
+
+});
