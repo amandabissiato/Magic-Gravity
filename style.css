@@ -1,0 +1,912 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg: #090714;
+  --bg-light: #110d22;
+
+  --purple: #8c5cff;
+  --purple-light: #b99aff;
+
+  --gold: #e7bd68;
+  --gold-light: #ffe3a0;
+
+  --text: #f4efff;
+  --muted: #aaa1bd;
+
+  --card: rgba(255, 255, 255, 0.055);
+  --border: rgba(255, 255, 255, 0.11);
+}
+
+/* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(
+      circle at 20% 10%,
+      rgba(110, 60, 200, .18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(70, 40, 150, .13),
+      transparent 30%
+    ),
+    var(--bg);
+
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+
+  overflow-x: hidden;
+}
+
+/* =========================
+   ESTRELAS
+========================= */
+
+.stars,
+.stars::before,
+.stars::after {
+  position: fixed;
+  inset: 0;
+
+  content: "";
+
+  pointer-events: none;
+
+  z-index: -1;
+
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.7) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.4) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    120px 120px,
+    200px 200px;
+
+  background-position:
+    20px 40px,
+    90px 100px;
+
+  opacity: .22;
+}
+
+.stars::before {
+  transform: scale(1.5);
+  opacity: .12;
+}
+
+.stars::after {
+  transform: scale(.7);
+  opacity: .18;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+  position: fixed;
+
+  top: 0;
+  width: 100%;
+
+  z-index: 100;
+
+  padding: 18px 6%;
+
+  background: rgba(9, 7, 20, .72);
+
+  backdrop-filter: blur(14px);
+
+  border-bottom:
+    1px solid rgba(255,255,255,.06);
+}
+
+nav {
+  max-width: 1200px;
+
+  margin: auto;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Cinzel', serif;
+
+  font-size: 1.35rem;
+
+  color: var(--gold-light);
+
+  letter-spacing: 2px;
+
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--purple-light);
+}
+
+.nav-links {
+  display: flex;
+
+  gap: 28px;
+
+  list-style: none;
+}
+
+.nav-links a {
+  color: #d9d1e8;
+
+  text-decoration: none;
+
+  font-size: .9rem;
+
+  transition: .3s;
+}
+
+.nav-links a:hover {
+  color: var(--gold-light);
+}
+
+.menu {
+  display: none;
+
+  background: none;
+
+  border: none;
+
+  color: white;
+
+  font-size: 1.7rem;
+
+  cursor: pointer;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 130px 20px 80px;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 700px;
+  height: 700px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(118, 71, 255, .22),
+      transparent 65%
+    );
+
+  top: 5%;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  filter: blur(10px);
+}
+
+.hero-content {
+  max-width: 900px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+.eyebrow {
+  color: var(--gold);
+
+  text-transform: uppercase;
+
+  letter-spacing: 5px;
+
+  font-size: .72rem;
+
+  font-weight: 600;
+
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-family: 'Cinzel', serif;
+
+  font-size: clamp(3rem, 8vw, 7rem);
+
+  line-height: .95;
+
+  letter-spacing: 3px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff,
+      #d7c8ff 45%,
+      #b17cff
+    );
+
+  -webkit-background-clip: text;
+
+  color: transparent;
+
+  margin-bottom: 25px;
+}
+
+.hero h1 span {
+  display: block;
+
+  color: var(--gold);
+
+  font-size: .28em;
+
+  letter-spacing: 8px;
+
+  margin-top: 20px;
+
+  background: none;
+
+  -webkit-text-fill-color: var(--gold);
+}
+
+.hero p {
+  max-width: 650px;
+
+  margin: auto;
+
+  color: var(--muted);
+
+  font-size: 1.08rem;
+}
+
+/* =========================
+   BOTÕES
+========================= */
+
+.buttons {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 14px;
+
+  margin-top: 38px;
+
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+
+  padding: 14px 25px;
+
+  border-radius: 8px;
+
+  text-decoration: none;
+
+  font-weight: 600;
+
+  transition: .3s;
+}
+
+.btn-primary {
+  background:
+    linear-gradient(
+      135deg,
+      #9b6cff,
+      #6540c9
+    );
+
+  color: white;
+
+  box-shadow:
+    0 8px 30px rgba(112, 67, 235, .25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 35px rgba(112, 67, 235, .4);
+}
+
+.btn-secondary {
+  border: 1px solid var(--border);
+
+  color: white;
+
+  background: rgba(255,255,255,.04);
+}
+
+.btn-secondary:hover {
+  border-color: var(--purple);
+
+  background: rgba(140,92,255,.1);
+}
+
+/* =========================
+   SEÇÕES
+========================= */
+
+section {
+  padding: 100px 6%;
+}
+
+.container {
+  max-width: 1150px;
+
+  margin: auto;
+}
+
+.section-title {
+  text-align: center;
+
+  margin-bottom: 55px;
+}
+
+.section-title small {
+  color: var(--gold);
+
+  text-transform: uppercase;
+
+  letter-spacing: 4px;
+
+  font-size: .7rem;
+}
+
+.section-title h2 {
+  font-family: 'Cinzel', serif;
+
+  font-size: clamp(2rem, 4vw, 3.2rem);
+
+  margin-top: 10px;
+}
+
+.section-title p {
+  color: var(--muted);
+
+  max-width: 650px;
+
+  margin: 14px auto 0;
+}
+
+/* =========================
+   LORE
+========================= */
+
+.lore {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 50px;
+
+  align-items: center;
+}
+
+.lore-text h3 {
+  font-family: 'Cinzel', serif;
+
+  color: var(--gold-light);
+
+  font-size: 1.7rem;
+
+  margin-bottom: 18px;
+}
+
+.lore-text p {
+  color: var(--muted);
+
+  margin-bottom: 16px;
+}
+
+.quote {
+  border-left: 2px solid var(--gold);
+
+  padding: 15px 20px;
+
+  margin-top: 25px;
+
+  color: #d9d0e9;
+
+  font-style: italic;
+}
+
+.castle {
+  min-height: 390px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 20px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(5,3,13,.9),
+      transparent
+    ),
+    radial-gradient(
+      circle at 50% 30%,
+      rgba(140,92,255,.3),
+      transparent 45%
+    ),
+    #0d0a1b;
+}
+
+.castle::before {
+  content: "🏰";
+
+  font-size: 10rem;
+
+  filter:
+    grayscale(.2)
+    drop-shadow(
+      0 0 30px rgba(140,92,255,.35)
+    );
+
+  margin-bottom: 45px;
+
+  opacity: .8;
+}
+
+.mountains {
+  position: absolute;
+
+  bottom: 0;
+
+  width: 100%;
+
+  height: 100px;
+
+  background:
+    linear-gradient(
+      135deg,
+      transparent 50%,
+      #07050f 51%
+    ) 0 0 / 140px 100px repeat-x;
+
+  opacity: .8;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.cards {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+.card {
+  padding: 30px;
+
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: 15px;
+
+  transition: .35s;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+
+  border-color:
+    rgba(153,110,255,.5);
+
+  background:
+    rgba(140,92,255,.08);
+}
+
+.card-icon {
+  font-size: 2.2rem;
+
+  margin-bottom: 18px;
+}
+
+.card h3 {
+  font-family: 'Cinzel', serif;
+
+  margin-bottom: 10px;
+
+  color: #eee8ff;
+}
+
+.card p {
+  color: var(--muted);
+
+  font-size: .92rem;
+}
+
+/* =========================
+   CRIATURAS
+========================= */
+
+.creatures {
+  background:
+    linear-gradient(
+      rgba(9,7,20,.85),
+      rgba(9,7,20,.95)
+    ),
+    radial-gradient(
+      circle at center,
+      rgba(110,60,200,.15),
+      transparent 60%
+    );
+}
+
+.creature-card {
+  text-align: center;
+}
+
+.creature-icon {
+  width: 100px;
+  height: 100px;
+
+  border-radius: 50%;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 3.3rem;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(140,92,255,.25),
+      rgba(140,92,255,.04)
+    );
+
+  border:
+    1px solid rgba(180,145,255,.2);
+}
+
+/* =========================
+   COMPETIÇÃO
+========================= */
+
+.competition {
+  position: relative;
+}
+
+.competition-box {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(120,75,220,.13),
+      rgba(255,190,80,.04)
+    );
+
+  border:
+    1px solid rgba(190,150,255,.18);
+
+  border-radius: 24px;
+
+  padding: 55px;
+
+  text-align: center;
+}
+
+.competition-box h3 {
+  font-family: 'Cinzel', serif;
+
+  color: var(--gold-light);
+
+  font-size: 2rem;
+
+  margin-bottom: 15px;
+}
+
+.competition-box p {
+  max-width: 700px;
+
+  color: var(--muted);
+
+  margin: auto;
+}
+
+.challenges {
+  margin-top: 40px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 12px;
+}
+
+.challenge {
+  padding: 18px 10px;
+
+  border-radius: 10px;
+
+  border: 1px solid var(--border);
+
+  background: rgba(0,0,0,.15);
+}
+
+.challenge span {
+  display: block;
+
+  font-size: 1.5rem;
+
+  margin-bottom: 7px;
+}
+
+.challenge small {
+  color: #c9c0d8;
+}
+
+/* =========================
+   RAÇAS
+========================= */
+
+.races {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 15px;
+}
+
+.race {
+  padding: 25px 15px;
+
+  text-align: center;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 14px;
+
+  background:
+    rgba(255,255,255,.035);
+
+  transition: .3s;
+}
+
+.race:hover {
+  transform: translateY(-5px);
+
+  border-color:
+    rgba(153,110,255,.5);
+}
+
+.race strong {
+  display: block;
+
+  font-family: 'Cinzel', serif;
+
+  color: var(--gold-light);
+
+  margin-top: 10px;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta {
+  text-align: center;
+
+  padding-bottom: 130px;
+}
+
+.cta-box {
+  max-width: 850px;
+
+  margin: auto;
+
+  padding: 70px 30px;
+
+  border-radius: 25px;
+
+  border:
+    1px solid rgba(231,189,104,.2);
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(140,92,255,.14),
+      transparent 65%
+    );
+}
+
+.cta h2 {
+  font-family: 'Cinzel', serif;
+
+  font-size:
+    clamp(2rem, 5vw, 3.5rem);
+
+  margin-bottom: 15px;
+}
+
+.cta p {
+  color: var(--muted);
+
+  margin-bottom: 30px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  padding: 30px 6%;
+
+  border-top:
+    1px solid var(--border);
+
+  text-align: center;
+
+  color: #756d83;
+
+  font-size: .8rem;
+}
+
+footer strong {
+  color: var(--gold);
+}
+
+/* =========================
+   ANIMAÇÃO
+========================= */
+
+.reveal {
+  opacity: 0;
+
+  transform:
+    translateY(25px);
+
+  transition:
+    opacity .8s ease,
+    transform .8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+
+  transform:
+    translateY(0);
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 800px) {
+
+  .menu {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+
+    top: 70px;
+    left: 0;
+
+    width: 100%;
+
+    padding: 20px;
+
+    background:
+      rgba(9,7,20,.97);
+
+    display: none;
+
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .lore,
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .races {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .challenges {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .competition-box {
+    padding: 35px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  section {
+    padding: 75px 5%;
+  }
+
+  .hero h1 {
+    font-size: 3.2rem;
+  }
+
+  .races,
+  .challenges {
+    grid-template-columns: 1fr;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .buttons .btn {
+    width: 100%;
+  }
+}
