@@ -5,24 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta name="description" content="Rocha Chueiri — uma fortaleza medieval e escola mágica ancestral escondida entre as Montanhas Nebulosas.">
-  <meta name="theme-color" content="#1a120b">
+  <meta name="theme-color" content="#1c1a17">
 
   <title>Rocha Chueiri | RPG Medieval</title>
 
-  <style>
-    @import url('https://googleapis.com');
+  <!-- Importação correta das fontes medievais e heráldicas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com" rel="stylesheet">
 
+  <style>
     :root {
-      --bg: #1a120b; /* Marrom escuro profundo, quase preto */
-      --bg-light: #2c1e11; /* Tom de madeira escura / couro */
-      --parchment: #f2e6ce; /* Cor de pergaminho antigo */
-      --iron: #3a3f46; /* Cinza ferro medieval */
-      --gold: #c5a059; /* Dourado envelhecido */
-      --gold-light: #ecd69a; /* Dourado iluminado pela brasa */
-      --text: #e8dfcb; /* Texto claro suave (オフホワイト medieval) */
-      --muted: #a6967d; /* Texto secundário desbotado */
-      --card: rgba(44, 30, 17, 0.6); /* Fundo de madeira translúcida */
-      --border: #4a351e; /* Borda de ferro forjado antigo */
+      --bg: #1c1a17;           /* Pedra escura de masmorra */
+      --bg-stone: #2b2824;     /* Cinza pedra de castelo */
+      --crimson: #7a1d1d;      /* Vermelho carmesim heráldico (estandartes e escudos) */
+      --crimson-light: #a62b2b;/* Carmesim iluminado por tochas */
+      --parchment: #f4ebd0;    /* Cor de papel pergaminho envelhecido */
+      --gold: #bfa15f;         /* Dourado heráldico antigo */
+      --gold-light: #e6d3a3;   /* Latão polido / Ouro brilhante */
+      --text: #eadeca;         /* Branco linho clássico para crônicas */
+      --muted: #9e9380;        /* Texto desbotado pelo tempo */
+      --border: #4d443a;       /* Ferro forjado antigo */
+      --card-bg: rgba(43, 40, 36, 0.75); /* Fundo de pedra translúcida */
     }
 
     * {
@@ -37,41 +41,39 @@
 
     body {
       background:
-        radial-gradient(circle at 50% 20%, rgba(197, 160, 89, 0.08), transparent 40%),
-        radial-gradient(circle at 10% 50%, rgba(44, 30, 17, 0.5), transparent 30%),
+        radial-gradient(circle at 50% 20%, rgba(122, 29, 29, 0.1), transparent 50%),
         var(--bg);
       color: var(--text);
-      font-family: 'EB Garamond', serif; /* Fonte de crônica/manuscrito antigo */
-      font-size: 1.15rem;
+      font-family: 'EB Garamond', serif; /* Fonte clássica de manuscritos */
+      font-size: 1.2rem;
       line-height: 1.6;
       overflow-x: hidden;
     }
 
     /* =========================
-       TEXTURA DE PERGAMINHO (Fundo)
+       TEXTURA DE PERGAMINHO
     ========================= */
     .parchment-texture {
       position: fixed;
       inset: 0;
       pointer-events: none;
-      z-index: -1;
-      opacity: 0.03;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://w3.org Atem-filter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      z-index: 1000;
+      opacity: 0.02;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://w3.org id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     }
 
     /* =========================
        HEADER
     ========================= */
-
     header {
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 100;
       padding: 20px 6%;
-      background: rgba(26, 18, 11, 0.9);
+      background: rgba(28, 26, 23, 0.96);
       border-bottom: 2px solid var(--border);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
     }
 
     nav {
@@ -83,7 +85,7 @@
     }
 
     .logo {
-      font-family: 'MedievalSharp', cursive; /* Fonte com aspecto gótico/medieval */
+      font-family: 'MedievalSharp', cursive; /* Caligrafia gótica */
       font-size: 1.6rem;
       color: var(--gold-light);
       letter-spacing: 1px;
@@ -92,7 +94,7 @@
     }
 
     .logo span {
-      color: var(--parchment);
+      color: var(--crimson-light);
     }
 
     .nav-links {
@@ -104,22 +106,22 @@
     .nav-links a {
       color: var(--text);
       text-decoration: none;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-family: 'Cinzel', serif;
       font-weight: 600;
       transition: .3s;
     }
 
     .nav-links a:hover {
-      color: var(--gold-light);
-      text-shadow: 0 0 8px rgba(236, 214, 154, 0.4);
+      color: var(--crimson-light);
+      text-shadow: 0 0 8px rgba(166, 43, 43, 0.5);
     }
 
     .menu {
       display: none;
       background: none;
       border: none;
-      color: white;
+      color: var(--gold-light);
       font-size: 1.7rem;
       cursor: pointer;
     }
@@ -127,7 +129,6 @@
     /* =========================
        HERO
     ========================= */
-
     .hero {
       min-height: 100vh;
       display: flex;
@@ -137,7 +138,7 @@
       padding: 140px 20px 80px;
       position: relative;
       overflow: hidden;
-      border-bottom: 3px double var(--border); /* Borda dupla estilo heráldico */
+      border-bottom: 4px double var(--border); /* Borda heráldica clássica */
     }
 
     .hero::before {
@@ -145,7 +146,7 @@
       position: absolute;
       width: 800px;
       height: 800px;
-      background: radial-gradient(circle, rgba(197, 160, 89, 0.05), transparent 70%);
+      background: radial-gradient(circle, rgba(122, 29, 29, 0.06), transparent 70%);
       top: 0;
       left: 50%;
       transform: translateX(-50%);
@@ -170,16 +171,16 @@
     .hero h1 {
       font-family: 'MedievalSharp', cursive;
       font-size: clamp(3rem, 7vw, 6rem);
-      line-height: 1;
+      line-height: 1.1;
       letter-spacing: 2px;
       color: var(--parchment);
       margin-bottom: 25px;
-      text-shadow: 3px 3px 0px #000, 0 0 30px rgba(197, 160, 89, 0.2);
+      text-shadow: 3px 3px 0px #000, 0 0 30px rgba(122, 29, 29, 0.3);
     }
 
     .hero h1 span {
       display: block;
-      color: var(--gold);
+      color: var(--crimson-light);
       font-family: 'Cinzel', serif;
       font-size: 0.35em;
       letter-spacing: 6px;
@@ -191,7 +192,7 @@
       max-width: 650px;
       margin: auto;
       color: var(--muted);
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       font-style: italic;
     }
 
@@ -217,43 +218,41 @@
     }
 
     .btn-primary {
-      background: var(--bg-light);
-      color: var(--gold-light);
+      background: var(--crimson);
+      color: var(--parchment);
       border-color: var(--gold);
       box-shadow: 0 4px 15px rgba(0,0,0,0.6);
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      background: var(--gold);
-      color: var(--bg);
-      box-shadow: 0 6px 20px rgba(197, 160, 89, 0.3);
+      background: var(--crimson-light);
+      color: white;
+      box-shadow: 0 6px 20px rgba(166, 43, 43, 0.4);
     }
 
     .btn-secondary {
       color: var(--text);
-      background: transparent;
+      background: var(--bg-stone);
       border-color: var(--border);
     }
 
     .btn-secondary:hover {
       border-color: var(--gold-light);
       color: var(--gold-light);
-      background: rgba(44, 30, 17, 0.4);
+      background: rgba(43, 40, 36, 0.9);
     }
 
     /* =========================
        SEÇÕES
     ========================= */
-
     section {
       padding: 100px 6%;
       position: relative;
     }
 
-    /* Divisor sutil entre seções */
     section:not(:last-of-type)::after {
-      content: "❧ ❖ ☙"; /* Ornamento medieval */
+      content: "❧ ❖ ☙"; /* Divisor decorativo clerical */
       position: absolute;
       bottom: 0;
       left: 50%;
@@ -261,6 +260,7 @@
       color: var(--border);
       font-size: 1.5rem;
       letter-spacing: 10px;
+      opacity: 0.6;
     }
 
     .container {
@@ -295,12 +295,12 @@
       max-width: 650px;
       margin: 14px auto 0;
       font-style: italic;
+      font-size: 1.25rem;
     }
 
     /* =========================
        LORE
     ========================= */
-
     .lore {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -328,21 +328,22 @@
     }
 
     .quote {
-      border-left: 3px solid var(--gold);
-      background: rgba(44, 30, 17, 0.3);
+      border-left: 3px solid var(--crimson);
+      background: rgba(122, 29, 29, 0.15);
       padding: 15px 20px;
       margin-top: 25px;
       color: var(--parchment);
       font-style: italic;
+      box-shadow: inset 5px 0 10px rgba(0,0,0,0.3);
     }
 
     .castle {
       min-height: 390px;
       border: 2px solid var(--border);
       background:
-        linear-gradient(to top, rgba(26,18,11,1), transparent),
-        radial-gradient(circle at 50% 40%, rgba(44, 30, 17, 0.8), transparent 60%),
-        #110b07;
+        linear-gradient(to top, var(--bg), transparent),
+        radial-gradient(circle at 50% 40%, rgba(122, 29, 29, 0.2), transparent 65%),
+        var(--bg-stone);
       position: relative;
       overflow: hidden;
       display: flex;
@@ -354,49 +355,30 @@
     .castle::before {
       content: "🏰";
       font-size: 10rem;
-      filter: sepia(0.5) drop-shadow(0 0 20px rgba(0,0,0,0.8));
+      filter: sepia(0.3) grayscale(0.2) drop-shadow(0 0 20px rgba(0,0,0,0.8));
       margin-bottom: 45px;
-      opacity: .6;
+      opacity: .5;
     }
+  </style>
+</head>
+<body>
 
-    /* =========================
-       CARDS / ESCOLA
-    ========================= */
+  <div class="parchment-texture"></div>
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
+  <header>
+    <nav>
+      <a href="#" class="logo">Rocha <span>Chueiri</span></a>
+      <ul class="nav-links">
+        <li><a href="#lore">Crônicas</a></li>
+        <li><a href="#fortaleza">A Ordem</a></li>
+        <li><a href="#recrutamento">Alistamento</a></li>
+      </ul>
+      <button class="menu">☰</button>
+    </nav>
+  </header>
 
-    @media (max-width: 900px) {
-      .cards { grid-template-columns: 1fr; }
-    }
-
-    .card {
-      padding: 35px 30px;
-      background: var(--card);
-      border: 2px solid var(--border);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-      transition: .35s;
-      position: relative;
-    }
-
-    /* Cantoneiras decorativas simulando metal nos cards */
-    .card::before {
-      content: "";
-      position: absolute;
-      top: 5px; left: 5px; width: 10px; height: 10px;
-      border-top: 2px solid var(--gold); border-left: 2px solid var(--gold);
-      opacity: 0.5;
-    }
-
-    .card::after {
-      content: "";
-      position: absolute;
-      bottom: 5px; right: 5px; width: 10px; height: 10px;
-      border-bottom: 2px solid var(--gold); border-right: 2px solid var(--gold);
-      opacity: 0.5;
-    }
-
-    .card:hover 
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="eyebrow">Uma Antiga Fortaleza nas Montanhas</div>
+        <h1>Rocha Chueiri<span>Escola de Magia & Espada</span></h1>
