@@ -3,217 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crônicas Medievais - Prefácio</title>
-    <style>
-        /* Importação de fontes que remetem ao estilo medieval e manuscrito */
-        @import url('https://googleapis.com');
-
-        body {
-            /* Fundo escuro imitando uma taverna ou mesa de carvalho */
-            background-color: #1a0f05;
-            background-image: radial-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
-            color: #2c1a04;
-            font-family: 'EB Garamond', serif;
-            font-size: 1.25rem;
-            line-height: 1.6;
-            margin: 0;
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
-        }
-
-        /* O Pergaminho Medieval */
-        .pergaminho {
-            max-width: 800px;
-            width: 100%;
-            background-color: #f2e3c6;
-            /* Textura visual de papel envelhecido e manchado */
-            background-image: 
-                radial-gradient(circle at 30% 20%, rgba(218, 185, 137, 0.3) 0%, transparent 60%),
-                radial-gradient(circle at 75% 65%, rgba(184, 142, 85, 0.4) 0%, transparent 50%);
-            padding: 60px;
-            box-sizing: border-box;
-            
-            /* Bordas duplas e desgastadas estilo antigo */
-            border: 12px double #5c3e21;
-            outline: 3px solid #2c1a04;
-            outline-offset: -15px;
-            
-            /* Sombra pesada para dar volume ao papel */
-            box-shadow: 
-                0 0 20px rgba(0, 0, 0, 0.8),
-                inset 0 0 60px rgba(139, 94, 42, 0.3);
-            position: relative;
-        }
-
-        /* Detalhes nos cantos do pergaminho (Cantoneiras Heráldicas) */
-        .pergaminho::before {
-            content: "✦";
-            position: absolute;
-            top: 20px;
-            left: 25px;
-            font-family: 'Cinzel', serif;
-            color: #5c3e21;
-            font-size: 1.5rem;
-        }
-        .pergaminho::after {
-            content: "✦";
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-family: 'Cinzel', serif;
-            color: #5c3e21;
-            font-size: 1.5rem;
-        }
-
-        /* Título Principal em estilo Gótico/Incisado */
-        h1 {
-            font-family: 'Cinzel Decorative', serif;
-            text-align: center;
-            font-size: 3rem;
-            color: #4a1a02;
-            margin-top: 0;
-            margin-bottom: 40px;
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
-            letter-spacing: 2px;
-        }
-
-        /* Layout da Seção Superior (Ilustração + Texto) */
-        .secao-ilustrada {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 35px;
-            align-items: flex-start;
-        }
-
-        /* Moldura Medieval para a Imagem */
-        .moldura-mago {
-            flex-shrink: 0;
-            width: 180px;
-            border: 4px solid #5c3e21;
-            padding: 5px;
-            background: #e3cca1;
-            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .moldura-mago img {
-            width: 100%;
-            height: auto;
-            display: block;
-            /* Efeito sépia para integrar qualquer imagem ao tema */
-            filter: sepia(0.6) contrast(1.1) brightness(0.9);
-        }
-
-        /* Texto Inicial */
-        .texto-inicial {
-            flex-grow: 1;
-            text-align: justify;
-        }
-
-        /* Letra Capitular (Aquela primeira letra gigante e ornamentada) */
-        .letra-capitular::first-letter {
-            font-family: 'MedievalSharp', cursive;
-            font-size: 4.5rem;
-            float: left;
-            line-height: 0.85;
-            margin-top: 4px;
-            margin-right: 10px;
-            color: #8a1a00;
-            text-shadow: 2px 2px 0px #4a1a02;
-        }
-
-        /* Divisor de Conteúdo Rústico */
-        .divisor-medieval {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 40px 0;
-        }
-
-        .divisor-medieval::before,
-        .divisor-medieval::after {
-            content: "";
-            flex: 1;
-            height: 2px;
-            background: linear-gradient(to var(--direction, right), transparent, #5c3e21);
-        }
-
-        .divisor-medieval::after {
-            --direction: left;
-        }
-
-        .divisor-medieval span {
-            padding: 0 15px;
-            color: #5c3e21;
-            font-size: 1.2rem;
-        }
-
-        /* Texto Principal Inferior */
-        .texto-principal {
-            text-align: justify;
-        }
-
-        .texto-principal p {
-            text-indent: 3em; /* Recuo tradicional de parágrafo */
-            margin-top: 0;
-            margin-bottom: 20px;
-        }
-
-        /* Responsividade para telas menores */
-        @media (max-width: 600px) {
-            .secao-ilustrada {
-                flex-direction: column;
-                align-items: center;
-            }
-            .moldura-mago {
-                width: 150px;
-            }
-            body {
-                padding: 10px;
-            }
-            .pergaminho {
-                padding: 30px 20px;
-            }
-        }
-    </style>
+    <title>Crônicas Medievais - O Prefácio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div class="pergaminho">
-        
-        <h1>Prefácio</h1>
-        
-        <div class="secao-ilustrada">
-            <div class="moldura-mago">
-                <!-- Imagem demonstrativa de um mago ancião -->
-                <img src="https://unsplash.com" alt="Mago Ancião">
-            </div>
-            <div class="texto-inicial">
-                <p class="letra-capitular">
-                    Nos tempos em que os primeiros reinos erguiam suas torres de pedra contra o céu cinzento, a magia não era apenas um sussurro entre os sábios, mas o sangue vivo da própria terra. Os antigos pergaminhos guardados nas profundezas de Citadel já previam a chegada daquele que caminharia entre dois mundos.
-                </p>
-                <p>
-                    O mestre conjurador, cujos olhos carregavam o peso de eras esquecidas, dedicou seus últimos dias a registrar as crônicas contidas neste tomo rústico.
-                </p>
-            </div>
+    <div class="moldura-medieval">
+        <div class="pergaminho">
+            <header>
+                <h1 class="titulo-medieval">PREFÁCIO</h1>
+                <div class="divisor-estilizado">✦ ⚜ ✦</div>
+            </header>
+            
+            <main>
+                <div class="icone-ilustracao">🧙‍♂️</div>
+                
+                <section id="caixa-texto">
+                    <p id="texto-narrativa">Carregando manuscrito medieval...</p>
+                </section>
+                
+                <section id="caixa-escolhas" class="lista-escolhas">
+                    <!-- Os botões de ação medieval surgirão dinamicamente aqui -->
+                </section>
+            </main>
+            
+            <footer>
+                <button id="btn-reiniciar" onclick="iniciarJogo()">Reiniciar Crônica</button>
+            </footer>
         </div>
-        
-        <!-- Divisor com um losango no centro simulando joia ou brasão -->
-        <div class="divisor-medieval">
-            <span>♦ ❖ ♦</span>
-        </div>
-        
-        <div class="texto-principal">
-            <p>
-                A jornada que se inicia nestas páginas transcende o mero relato de batalhas por coroas de ferro e ouro. Trata-se do resgate de segredos esquecidos sob as ruínas dos salões elficos e dos antigos clãs das montanhas do norte. Cada palavra grafada sob a luz trêmula das velas foi protegida por encantamentos de ocultação.
-            </p>
-            <p>
-                Que o leitor avance com cautela e respeito, pois abrir este livro é o equivalente a quebrar o selo de uma tumba antiga. As forças aqui descritas ainda ecoam nos vales e florestas sussurrantes do nosso mundo.
-            </p>
-        </div>
-
     </div>
 
+    <script src="app.js"></script>
 </body>
 </html>
