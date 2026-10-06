@@ -76,3 +76,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+ <!-- ... resto do seu texto medieval aqui ... -->
+    </div>
+
+    <!-- LINHA A SER ADICIONADA: Conecta o arquivo de script -->
+    <script src="app.js"></script>
+</body>
+</html>
