@@ -9,7 +9,7 @@
 
   <title>Rocha Chueiri | RPG Medieval</title>
 
-  <!-- Importação correta das fontes medievais e heráldicas -->
+  <!-- Importação correta das fontes medievais, heráldicas e góticas -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://gstatic.com" crossorigin>
   <link href="https://googleapis.com" rel="stylesheet">
@@ -41,7 +41,7 @@
 
     body {
       background:
-        radial-gradient(circle at 50% 20%, rgba(122, 29, 29, 0.1), transparent 50%),
+        radial-gradient(circle at 50% 20%, rgba(122, 29, 29, 0.15), transparent 50%),
         var(--bg);
       color: var(--text);
       font-family: 'EB Garamond', serif; /* Fonte clássica de manuscritos */
@@ -117,15 +117,6 @@
       text-shadow: 0 0 8px rgba(166, 43, 43, 0.5);
     }
 
-    .menu {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--gold-light);
-      font-size: 1.7rem;
-      cursor: pointer;
-    }
-
     /* =========================
        HERO
     ========================= */
@@ -170,7 +161,7 @@
 
     .hero h1 {
       font-family: 'MedievalSharp', cursive;
-      font-size: clamp(3rem, 7vw, 6rem);
+      font-size: clamp(3rem, 7vw, 5.5rem);
       line-height: 1.1;
       letter-spacing: 2px;
       color: var(--parchment);
@@ -244,7 +235,7 @@
     }
 
     /* =========================
-       SEÇÕES
+       SEÇÕES GENERALIZADAS
     ========================= */
     section {
       padding: 100px 6%;
@@ -299,7 +290,7 @@
     }
 
     /* =========================
-       LORE
+       LORE (HISTÓRIA)
     ========================= */
     .lore {
       display: grid;
@@ -317,68 +308,68 @@
       color: var(--gold-light);
       font-size: 1.8rem;
       margin-bottom: 18px;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 8px;
     }
 
     .lore-text p {
-      color: var(--text);
-      margin-bottom: 16px;
+      margin-bottom: 15px;
       text-align: justify;
+      color: var(--text);
     }
 
-    .quote {
-      border-left: 3px solid var(--crimson);
-      background: rgba(122, 29, 29, 0.15);
-      padding: 15px 20px;
-      margin-top: 25px;
-      color: var(--parchment);
-      font-style: italic;
-      box-shadow: inset 5px 0 10px rgba(0,0,0,0.3);
+    .lore-frame {
+      border: 3px double var(--gold);
+      padding: 10px;
+      background: var(--bg-stone);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     }
 
-    .castle {
-      min-height: 390px;
-      border: 2px solid var(--border);
-      background:
-        linear-gradient(to top, var(--bg), transparent),
-        radial-gradient(circle at 50% 40%, rgba(122, 29, 29, 0.2), transparent 65%),
-        var(--bg-stone);
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      box-shadow: inset 0 0 40px #000;
-    }
-
-    .castle::before {
-      content: "🏰";
-      font-size: 10rem;
-      filter: sepia(0.3) grayscale(0.2) drop-shadow(0 0 20px rgba(0,0,0,0.8));
-      margin-bottom: 45px;
-      opacity: .5;
+    .lore-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: sepia(0.3) contrast(1.1);
     }
   </style>
 </head>
 <body>
 
+  <!-- Textura sutil aplicada sobre o layout -->
   <div class="parchment-texture"></div>
 
+  <!-- Cabeçalho de Navegação -->
   <header>
     <nav>
       <a href="#" class="logo">Rocha <span>Chueiri</span></a>
       <ul class="nav-links">
-        <li><a href="#lore">Crônicas</a></li>
-        <li><a href="#fortaleza">A Ordem</a></li>
-        <li><a href="#recrutamento">Alistamento</a></li>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#lore">A Fortaleza</a></li>
+        <li><a href="#cronicas">Crônicas</a></li>
       </ul>
-      <button class="menu">☰</button>
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-content">
-        <div class="eyebrow">Uma Antiga Fortaleza nas Montanhas</div>
-        <h1>Rocha Chueiri<span>Escola de Magia & Espada</span></h1>
+  <!-- Seção de Destaque (Hero) -->
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <div class="eyebrow">Escola Mágica Ancestral</div>
+      <h1>Rocha Chueiri<span>Santuário das Montanhas Nebulosas</span></h1>
+      <p>"Onde as pedras guardam segredos arcanos e o aço forja o destino dos reinos."</p>
+      <div class="buttons">
+        <a href="#lore" class="btn btn-primary">Explorar Fortaleza</a>
+        <a href="#cronicas" class="btn btn-secondary">Ler as Crônicas</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Lore Histórica -->
+  <section id="lore">
+    <div class="container">
+      <div class="section-title">
+        <small>Os Manuscritos Antigos</small>
+        <h2>A História de Nossa Fundação</h2>
+        <p>Registros extraídos da biblioteca oculta dos altos magos.</p>
+      </div>
+      
+      <div class="lore">
+        <div class="lore-text">
+          <h3>Uma Fortaleza Inabalável</h3>
