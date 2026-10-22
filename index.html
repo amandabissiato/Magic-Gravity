@@ -35,3 +35,38 @@
     <script src="app.js"></script>
 </body>
 </html>
+<!-- Área do Evento Guerra dos Mundos -->
+<section class="container-guerra">
+    <div class="card-guerra">
+        <img src="apresentacao.png" alt="Apresentação do Jogo Guerra dos Mundos">
+    </div>
+    <div class="card-guerra">
+        <img src="informacoes.png" alt="Informações do Jogo Guerra dos Mundos">
+    </div>
+</section>
+
+<!-- Estilo para deixar o design perfeito (coloque no seu arquivo .css ou dentro de <style>) -->
+<style>
+    .container-guerra {
+        display: flex;
+        justify-content: center;
+        gap: 20px; /* Espaço entre as duas imagens */
+        padding: 40px 20px;
+        background-color: #0b0c10; /* Fundo escuro combinando com o tema medieval */
+        flex-wrap: wrap; /* Faz uma imagem ficar sob a outra em telas pequenas */
+    }
+
+    .card-guerra {
+        max-width: 500px; /* Evita que a imagem estique demais */
+        width: 100%;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7); /* Sombra elegante */
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .card-guerra img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+</style>
