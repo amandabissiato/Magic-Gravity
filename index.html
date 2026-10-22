@@ -7,7 +7,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Seu jogo/pergaminho original -->
+
+    <!-- 🌟 ABERTURA DO SITE: BANNER DO EVENTO GUERRA DOS MUNDOS 🌟 -->
+    <section class="abertura-guerra">
+        <div class="guerra-wrapper">
+            <div class="card-guerra">
+                <!-- Parte 1: Apresentação -->
+                <img src="https://ibb.co" alt="Apresentação do Jogo Guerra dos Mundos">
+            </div>
+            <div class="card-guerra">
+                <!-- Parte 2: Informações -->
+                <img src="https://ibb.co" alt="Informações do Jogo Guerra dos Mundos">
+            </div>
+        </div>
+        <div class="seta-rolar">
+            <p>Role para baixo para jogar</p>
+            <span>🔽</span>
+        </div>
+    </section>
+
+    <!-- Seu jogo/pergaminho original vem logo em seguida -->
     <div class="moldura-medieval">
         <div class="pergaminho">
             <header>
@@ -33,43 +52,70 @@
         </div>
     </div>
 
-    <!-- Área do Evento Guerra dos Mundos (Agora dentro do body e corrigido!) -->
-    <section class="container-guerra">
-        <div class="card-guerra">
-            <!-- Parte 1: Apresentação -->
-            <img src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='500' height='500' viewBox='0 0 500 500'><rect width='100%' height='100%' fill='%231a120b'/><text x='50%' y='40%' font-family='serif' font-size='24' fill='%23c5a059' text-anchor='middle'>GUERRA DOS MUNDOS</text><text x='50%' y='55%' font-family='sans-serif' font-size='16' fill='%23fff' text-anchor='middle'>Apresentação do Jogo</text><text x='50%' y='70%' font-family='sans-serif' font-size='12' fill='%23a1824a' text-anchor='middle'>Uma escola. Um propósito.</text></svg>" alt="Apresentação do Jogo Guerra dos Mundos">
-        </div>
-        <div class="card-guerra">
-            <!-- Parte 2: Informações -->
-            <img src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='500' height='500' viewBox='0 0 500 500'><rect width='100%' height='100%' fill='%231a120b'/><text x='50%' y='35%' font-family='serif' font-size='24' fill='%23c5a059' text-anchor='middle'>INFORMAÇÕES</text><text x='50%' y='50%' font-family='sans-serif' font-size='14' fill='%23fff' text-anchor='middle'>Data: 27 de Setembro de 2026</text><text x='50%' y='60%' font-family='sans-serif' font-size='14' fill='%23fff' text-anchor='middle'>Local: Convenção Rocha Chueire</text><text x='50%' y='70%' font-family='sans-serif' font-size='14' fill='%23fff' text-anchor='middle'>Horário: Das 10h às 17h</text></svg>" alt="Informações do Jogo Guerra dos Mundos">
-        </div>
-    </section>
-
-    <!-- Estilo para alinhar tudo perfeitamente -->
+    <!-- Estilos específicos para a Abertura -->
     <style>
-        .container-guerra {
+        /* Define o fundo escuro para o site todo combinar com a abertura */
+        body {
+            background-color: #0d0d0d;
+            margin: 0;
+            padding: 0;
+        }
+
+        .abertura-guerra {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh; /* Ocupa a tela inteira ao abrir */
+            padding: 40px 20px;
+            box-sizing: border-box;
+            background: radial-gradient(circle, #1a1510 0%, #050505 100%);
+            border-bottom: 3px double #c5a059; /* Divisor dourado elegante */
+        }
+
+        .guerra-wrapper {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            padding: 40px 20px;
-            background-color: #0d0d0d;
-            flex-wrap: wrap;
-            margin-top: 30px; /* Dá um espacinho do pergaminho de cima */
+            gap: 25px;
+            max-width: 1000px;
+            width: 100%;
+            flex-wrap: wrap; /* Se for celular, joga um embaixo do outro */
         }
 
         .card-guerra {
-            max-width: 450px;
+            max-width: 420px;
             width: 100%;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
             border: 2px solid #c5a059;
-            border-radius: 10px;
+            border-radius: 8px;
             overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        /* Efeito de zoom de leve ao passar o mouse */
+        .card-guerra:hover {
+            transform: scale(1.02);
         }
 
         .card-guerra img {
             width: 100%;
             height: auto;
             display: block;
+        }
+
+        .seta-rolar {
+            text-align: center;
+            margin-top: 30px;
+            font-family: serif;
+            color: #c5a059;
+            letter-spacing: 1px;
+            animation: flutuar 2s infinite ease-in-out;
+        }
+
+        /* Animação para a setinha ficar subindo e descendo de leve */
+        @keyframes flutuar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
         }
     </style>
 
