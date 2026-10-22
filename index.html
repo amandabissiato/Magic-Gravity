@@ -8,9 +8,9 @@
 </head>
 <body>
 
-    <!-- 🌟 ABERTURA DO SITE: BANNER DO EVENTO GUERRA DOS MUNDOS 🌟 -->
-    <section class="abertura-guerra">
-        <div class="guerra-wrapper">
+    <!-- 🌟 ABERTURA DO SITE: EXIBIÇÃO IMEDIATA DO EVENTO 🌟 -->
+    <section class="abertura-guerra-imediata">
+        <div class="guerra-layout-aberto">
             <div class="card-guerra">
                 <!-- Parte 1: Apresentação -->
                 <img src="https://ibb.co" alt="Apresentação do Jogo Guerra dos Mundos">
@@ -20,13 +20,14 @@
                 <img src="https://ibb.co" alt="Informações do Jogo Guerra dos Mundos">
             </div>
         </div>
-        <div class="seta-rolar">
-            <p>Role para baixo para jogar</p>
-            <span>🔽</span>
+        
+        <div class="indicador-rolagem">
+            <p>Role para baixo para ler as crônicas</p>
+            <span class="seta-animada">🔽</span>
         </div>
     </section>
 
-    <!-- Seu jogo/pergaminho original vem logo em seguida -->
+    <!-- O pergaminho original do seu jogo vem logo na sequência abaixo -->
     <div class="moldura-medieval">
         <div class="pergaminho">
             <header>
@@ -52,49 +53,43 @@
         </div>
     </div>
 
-    <!-- Estilos específicos para a Abertura -->
+    <!-- Estilos organizados para garantir que tudo abra 100% visível -->
     <style>
-        /* Define o fundo escuro para o site todo combinar com a abertura */
         body {
             background-color: #0d0d0d;
             margin: 0;
             padding: 0;
         }
 
-        .abertura-guerra {
+        /* Seção da abertura configurada para já exibir tudo imediatamente */
+        .abertura-guerra-imediata {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh; /* Ocupa a tela inteira ao abrir */
+            min-height: 100vh; /* Ocupa a tela cheia na entrada do site */
             padding: 40px 20px;
             box-sizing: border-box;
-            background: radial-gradient(circle, #1a1510 0%, #050505 100%);
-            border-bottom: 3px double #c5a059; /* Divisor dourado elegante */
+            background: radial-gradient(circle, #1c1611 0%, #050505 100%);
+            border-bottom: 3px double #c5a059;
         }
 
-        .guerra-wrapper {
+        .guerra-layout-aberto {
             display: flex;
             justify-content: center;
             gap: 25px;
-            max-width: 1000px;
+            max-width: 950px;
             width: 100%;
-            flex-wrap: wrap; /* Se for celular, joga um embaixo do outro */
+            flex-wrap: wrap; /* Se abrir no celular, as duas metades ficam uma sob a outra perfeitamente */
         }
 
         .card-guerra {
-            max-width: 420px;
+            max-width: 410px;
             width: 100%;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
             border: 2px solid #c5a059;
             border-radius: 8px;
             overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-
-        /* Efeito de zoom de leve ao passar o mouse */
-        .card-guerra:hover {
-            transform: scale(1.02);
         }
 
         .card-guerra img {
@@ -103,23 +98,36 @@
             display: block;
         }
 
-        .seta-rolar {
+        .indicador-rolagem {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 35px;
             font-family: serif;
             color: #c5a059;
+            font-size: 14px;
             letter-spacing: 1px;
-            animation: flutuar 2s infinite ease-in-out;
         }
 
-        /* Animação para a setinha ficar subindo e descendo de leve */
-        @keyframes flutuar {
+        .seta-animada {
+            display: inline-block;
+            margin-top: 5px;
+            font-size: 18px;
+            animation: balancoSeta 2s infinite ease-in-out;
+        }
+
+        /* Animação sutil para a setinha indicar que tem mais conteúdo abaixo */
+        @keyframes balancoSeta {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(8px); }
+            50% { transform: translateY(6px); }
+        }
+
+        /* Espaçamento extra opcional para o seu pergaminho não ficar colado */
+        .moldura-medieval {
+            padding-top: 60px;
+            padding-bottom: 60px;
         }
     </style>
 
-    <!-- Script sempre no final do body -->
+    <!-- Script de controle do jogo -->
     <script src="app.js"></script>
 </body>
 </html>
